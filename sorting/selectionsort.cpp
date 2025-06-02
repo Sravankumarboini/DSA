@@ -1,13 +1,13 @@
-class Solution {
-public:
-    vector<int> bubbleSort(vector<int>& nums) {
+vector<int> selectionSort(vector<int>& nums) {
         int n = nums.size();
-        for (int i = n - 1; i >= 0; i--) {
-            for (int j = 0; j < i; j++) {
-                if (nums[j] > nums[j + 1]) {
-                    swap(nums[j], nums[j + 1]);
-                }
+        for (int j = n - 1; j >= 0; j--) {
+            int maxIdx = 0;
+            for (int i = 1; i <= j; i++) {
+                if (nums[i] > nums[maxIdx]) {
+                    maxIdx = i;
+                }  
             }
+            swap(nums[maxIdx], nums[j]);
         }
         return nums;
     }
