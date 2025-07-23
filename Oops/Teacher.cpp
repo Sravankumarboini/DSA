@@ -4,14 +4,21 @@ using namespace std;
 
 class Teacher{
     //properties
+private:
+    double salary;
 public:
     string name;
     string dept;
     string subject;
-    double salary;
     //methods
     void chanegeDept(string newDept){
         dept =newDept;
+    }
+    void setSalary(double s){
+        salary=s;
+    }
+    double getSalary(){
+        return salary;
     }
 };
 
@@ -20,7 +27,8 @@ int main(){
     t1.name="sravan";
     t1.subject="dsa";
     t1.dept="computer science";
-    t1.salary=25000;
+    t1.setSalary(25000);
     cout<<t1.name<<endl;
+    cout<<t1.getSalary();
     return 0;
 }
