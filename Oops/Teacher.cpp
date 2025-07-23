@@ -7,6 +7,9 @@ class Teacher{
 private:
     double salary;
 public:
+    Teacher(){
+        cout<<"Hi,I am constructor"<<endl;
+    }
     string name;
     string dept;
     string subject;
@@ -14,10 +17,10 @@ public:
     void chanegeDept(string newDept){
         dept =newDept;
     }
-    void setSalary(double s){
+    void setSalary(double s){//setter
         salary=s;
     }
-    double getSalary(){
+    double getSalary(){//getter
         return salary;
     }
 };
