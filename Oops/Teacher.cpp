@@ -21,6 +21,6 @@ int main(){
     t1.subject="dsa";
     t1.dept="computer science";
     t1.salary=25000;
-    cout<<t1.name;
+    cout<<t1.name<<endl;
     return 0;
 }
