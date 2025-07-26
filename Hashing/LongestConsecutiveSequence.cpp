@@ -12,12 +12,13 @@ int LongestSequence(vector<int> arr){
     auto next_it=next(it);
     int max_length=1;
     int cnt=1;
-    for(auto it=s.begin();next_it!=s.end();it++){
+    while(next_it!=s.end()){
         if(*next_it-1==*it) cnt++;
         else{
             max_length=max(max_length,cnt);
             cnt=1;
         }
+        it=next_it;
         next_it++;
     }
     return max_length;
