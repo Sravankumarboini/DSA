@@ -21,6 +21,7 @@ int LongestSequence(vector<int> arr){
         it=next_it;
         next_it++;
     }
+    max_length=max=max(cnt,max_length);
     return max_length;
 }
 int main(){
