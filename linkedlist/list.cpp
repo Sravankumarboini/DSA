@@ -40,6 +40,27 @@ public:
             tail=newNode;
         }
     }
+    void insert(int val,int pos){
+        if(pos<0) {
+            cout<<"invalid pos";
+            return;
+        }
+        if(pos==0){
+            push_front(val);
+            return;
+        }
+        node* temp=head;
+        for(int i=0;i<pos-1;i++){
+            if(temp==NULL){
+                cout<<"invalid pos";
+                return;
+            }
+            temp=temp->next;
+        }
+        node* newNode=new node(val);
+        newNode->next=temp->next;
+        temp->next=newNode;
+    }
     void pop_front(){
         if(head==NULL) return;
         else{
@@ -70,6 +91,14 @@ public:
         }
         cout<<endl;
     }
+    int search(int key){
+        node* temp=head;
+        for(int i=0;temp!=NULL;i++){
+            if(temp->data==key) return i;
+            temp=temp->next;
+        }
+        return -1;
+    }
 };
 int main(){
     linkedlist ll;
@@ -83,4 +112,7 @@ int main(){
     ll.display();
     ll.pop_back();
     ll.display();
+    ll.insert(55,3);
+    ll.display();
+    cout<<ll.search(55);
 }
