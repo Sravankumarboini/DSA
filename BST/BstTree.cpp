@@ -7,15 +7,15 @@ public:
     node* left,*right;
     node(int val){
         data=val;
-        left=nullptr;
-        right=nullptr;
+        left=NULL;
+        right=NULL;
     }
 };
 class BstTree{
 public:
     node* insert(node* root,int val){
         node* newNode=new node(val);
-        if(root==nullptr){
+        if(root==NULL){
             root=newNode;
             return root;
         }
@@ -37,7 +37,7 @@ public:
     node* ans=nullptr;
     node *kthsmall(node* root,int val,node* r){
         if(root==r) cnt=0;
-        if(root==nullptr) return nullptr;
+        if(root==NULL) return NULL;
         kthsmall(root->left,val,r);
         cnt++;
         if(cnt==val) {
@@ -46,8 +46,39 @@ public:
         kthsmall(root->right,val,r);
         return ans;
     }
+    node* inorderSuccessor(node* root){
+        while(root!=NULL && root->left!=NULL)
+            root=root->left;
+        return root;
+    }
+    node* delnode(node* root,int key){
+        if(root==NULL) return NULL;
+        if(key<root->data){
+            root->left=delnode(root->left,key);
+        }
+        else if(key>root->right){
+            root->right=delnode(root->right,key);
+        }
+        else{
+            if(root->left==NULL){
+                node* temp=root->right;
+                delete root;
+                return temp;
+            }
+            else if(root->right==NULL){
+                node* temp=root->left;
+                delete root;
+                return temp;
+            }
+            else{//2 children
+                node* IS=inorderSuccessor(root->right);
+                root->data=IS->data;
+                root->right=delnode(root->right,IS->data);
+            }
+        }
+    }
     node* search(node* head,int val){
-        if(head==nullptr) return nullptr;
+        if(head==NULL) return NULL;
         else if(head->data==val) return head;
         else if(val>head->data) return search(head->right,val);
         else return search(head->left,val);
@@ -55,7 +86,7 @@ public:
 };
 int main(){
     BstTree bst;
-    node* head=nullptr;
+    node* head=NULL;
     head=bst.insert(head,10);
     bst.insert(head,50);
     bst.insert(head,20);
