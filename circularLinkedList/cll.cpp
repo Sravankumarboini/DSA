@@ -46,7 +46,7 @@ class circularLinkedList{
             cout<<temp->data<<"->";
             temp=temp->next;
         }
-        cout<<"NULL"<<endl;
+        cout<<head->data<<endl;
     }
     void deleteAtHead(){
         if(head==NULL) return;
