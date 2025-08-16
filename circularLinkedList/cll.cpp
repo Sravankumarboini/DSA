@@ -43,8 +43,10 @@ class circularLinkedList{
         cout<<head->data<<"->";
         node* temp=head->next;
         while(temp!=head){
-            cout<<head->data<<"->";
+            cout<<temp->data<<"->";
+            temp=temp->next;
         }
+        cout<<"NULL"<<endl;
     }
     void deleteAtHead(){
         if(head==NULL) return;
@@ -82,4 +84,9 @@ int main(){
     cll.insertAtHead(1);
     cll.insertAtHead(2);
     cll.insertAtTail(3);
+    cll.print();
+    cll.deleteAtHead();
+    cll.print();
+    cll.deleteAtTail();
+    cll.print();
 }
