@@ -1,4 +1,5 @@
 #include<iostream>
+using namespace std;
 class node{
     public:
     int data;
@@ -11,6 +12,7 @@ class node{
 class circularLinkedList{
     node* head;
     node* tail;
+    public:
     circularLinkedList(){
         head=tail=NULL;
     }
@@ -77,7 +79,7 @@ class circularLinkedList{
 };
 int main(){
     circularLinkedList cll;
-    cll.insert(1);
-    cll.insert(2);
-    cll.insert(3);
+    cll.insertAtHead(1);
+    cll.insertAtHead(2);
+    cll.insertAtTail(3);
 }
