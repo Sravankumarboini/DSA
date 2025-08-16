@@ -45,6 +45,39 @@ class circularLinkedList{
         }
     }
     void deleteAtHead(){
-        
+        if(head==NULL) return;
+        else if(head==tail){
+            delete head;
+            head=tail=NULL;
+        }else{
+            node* temp=head;
+            head=head->next;
+            tail->next=head;
+            temp->next=NULL;
+            delete temp;
+        }
+    }
+    void deleteAtTail(){
+        if(head==NULL) return;
+        else if(head==tail){
+            delete head;
+            head=tail=NULL;
+        }else{
+            node* temp=tail;
+            node* prev=head;
+            while(prev->next!=tail){
+                prev=prev->next;
+            }
+            tail=prev;
+            tail->next=head;
+            temp->next=NULL;
+            delete temp;
+        }
     }
 };
+int main(){
+    circularLinkedList cll;
+    cll.insert(1);
+    cll.insert(2);
+    cll.insert(3);
+}
