@@ -1,4 +1,5 @@
 #include<iostream>
+#include<vector>
 using namespace std;
 class stack{
     vector<int> v;
@@ -22,7 +23,7 @@ int main(){
     s.push(20);
     s.push(30);
     while(!s.empty()){
-        cout<<s.top();
+        cout<<s.top()<<" ";
         s.pop();
     }
 }
