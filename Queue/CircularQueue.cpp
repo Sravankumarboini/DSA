@@ -30,7 +30,6 @@ class circularQueue{
         f=(f+1)%cap;
         currsize--;
     }
-
     int front(){
         if(empty()){
             return -1;
@@ -49,4 +48,8 @@ int main(){
     cq.push(2);
     cq.push(3);
     cq.pop();
+    while(!cq.empty()){
+        cout<<cq.front();
+        cq.pop();
+    }
 }
