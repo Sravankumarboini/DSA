@@ -21,10 +21,15 @@ node* buildTree(vector<int> preorder){
     return root;
 }
 
+void preorder(node* root){
+    if(root==NULL) return;
+    cout<<root->data<<" ";
+    preorder(root->left);
+    preorder(root->right);
+}
 int main(){
-    vector<int> preorder={1,2,-1,-1,3,4,-1,-1,5,-1,-1};
-    node* root=buildTree(preorder);
-    cout<<root->data<<endl;
-    cout<<root->left->data<<endl;
-    cout<<root->right->data;
+    vector<int> preord={1,2,-1,-1,3,4,-1,-1,5,-1,-1};
+    node* root=buildTree(preord);
+    preorder(root);
+    cout<<endl;
 }
