@@ -1,5 +1,6 @@
 #include<iostream>
 #include<vector>
+#include<queue>
 using namespace std;
 class node{
     public:
@@ -41,6 +42,31 @@ void postorder(node* root){
     postorder(root->right);
     cout<<root->data<<" ";
 }
+
+void levelorder(node* root){
+    queue<node*> q;
+    q.push(root);
+    q.push(NULL);
+    while(q.size()>0){
+        node* cur=q.front();
+        q.pop();
+        if(cur==NULL){
+            if(!q.empty()){
+                cout<<endl;
+                q.push(NULL);
+                continue;
+            }else{
+                break;
+            }
+        }
+
+        cout<<cur->data<<" ";
+        if(cur->left!=NULL) 
+        q.push(cur->left);
+        if(cur->right!=NULL)
+        q.push(cur->right);
+    }
+}
 int main(){
     vector<int> preord={1,2,-1,-1,3,4,-1,-1,5,-1,-1};
     node* root=buildTree(preord);
@@ -49,4 +75,7 @@ int main(){
     inorder(root);
     cout<<endl;
     postorder(root);
+    cout<<endl;
+    cout<<"levelorder:"<<endl;
+    levelorder(root);
 }
