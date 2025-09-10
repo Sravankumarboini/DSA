@@ -27,9 +27,18 @@ void preorder(node* root){
     preorder(root->left);
     preorder(root->right);
 }
+
+void inorder(node* root){
+    if(root==NULL) return;
+    inorder(root->left);
+    cout<<root->data<<" ";
+    inorder(root->right);
+}
 int main(){
     vector<int> preord={1,2,-1,-1,3,4,-1,-1,5,-1,-1};
     node* root=buildTree(preord);
     preorder(root);
+    cout<<endl;
+    inorder(root);
     cout<<endl;
 }
